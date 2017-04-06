@@ -1,0 +1,27 @@
+document.write('<div class="container"><%= form_for(App.new, :url=>"http://localhost:3000/apps/",remote: true) do |f| %>'
+        + '<h2 class="form-signin-heading">Sign in for News letter</h2>'
+        +'<label for="inputEmail" class="sr-only">Email address</label>'
+        +'<input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>'
+        +'<label for="inputText" class="sr-only">Full name</label>'
+        +'<input type="text"name="full_name" id="inputText" class="form-control" placeholder="Full name" required>'
+        +'</div> <button class="btn btn-lg btn-primary btn-block submit" type="button" onclick="submitFormAjax();">Sign in</button>'
+      + '<% end %>   </div>'); 
+      
+ function submitFormAjax()
+{
+    var xmlhttp= window.XMLHttpRequest ?
+        new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP");
+
+    xmlhttp.onreadystatechange = function() {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
+            alert(xmlhttp.responseText); // Here is the response
+    }
+
+    var name = document.getElementById('inputText').value;
+    var email = document.getElementById('inputEmail').value;
+    var params = "full_name=" + name + "&email=" + email;
+    xmlhttp.open("POST","http://localhost:3000/apps/", true);
+    xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+    xmlhttp.send(params);
+}
+
