@@ -52,4 +52,5 @@ production:
   <<: *default
   url: <%= ENV['DATABASE_URL'] %>
   database: frontdesk_rails_production
-  username: frontdesk_rails
+  username: ENV['DATABASE_USERNAME']
+  password: ENV['DATABASE_PASSWORDs']
