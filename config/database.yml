@@ -16,6 +16,7 @@ default: &default
   reconnect: true
   username: root
   password: admin@123
+  socket: /tmp/mysql.sock
 
 
 development:
