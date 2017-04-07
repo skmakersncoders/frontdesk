@@ -20,7 +20,7 @@ document.write('<div class="container"><%= form_for(App.new, :url=>"http://local
     var name = document.getElementById('inputText').value;
     var email = document.getElementById('inputEmail').value;
     var params = "full_name=" + name + "&email=" + email;
-    xmlhttp.open("POST","http://localhost:3000/apps/", true);
+    xmlhttp.open("POST","http://frontdeskdemo.herokuapp.com/apps/", true);
     xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
     xmlhttp.send(params);
 }
