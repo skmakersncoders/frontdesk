@@ -50,5 +50,6 @@ test:
 #
 production:
   <<: *default
+  url: <%= ENV['DATABASE_URL'] %>
   database: frontdesk_rails_production
   username: frontdesk_rails
